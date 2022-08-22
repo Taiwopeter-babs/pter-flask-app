@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}TaiwoAPI Sign-Up{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="container" style="border: 5px thin gray; padding: 5px; margin: auto; width: 400px;"> 
+
+        <form method="POST">
+            <h3 align="center">Sign-Up</h3>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+            </div>
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter full name">
+            </div>
+            <div class="form-group">
+                <label for="password1">Password</label>
+                <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter password">
+            </div>
+            <div class="form-group">
+                <label for="password2">Re-enter Password</label>
+                <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm password">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Join the Community</button>
+        </form>
+    </div>
+
+
+{% endblock %}

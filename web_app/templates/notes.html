@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}My Notes{% endblock %}
+
+{% block content %}
+
+<h1 align="center">My Notes</h1>
+<br>
+<tr>
+    <td><img style="padding: 10px;" src="{{ user.avatar(80) }}"></td>
+    <td><p>{{current_user.full_name }}</p>
+    {% if current_user.user_last_seen %}<p><i><small>Last seen: {{ current_user.user_last_seen }}</small></i></p>
+    {% endif %}</td>
+</tr>
+
+<form method="POST">
+    <textarea name="note_title" id="note_title" cols="5" rows="5" class="form-control" placeholder="Add Title"></textarea>
+    <textarea name="note" id="note" cols="20" rows="5" class="form-control" placeholder="Add New Note"></textarea>
+    <br/>
+    <div align="right">
+        <button type="submit" class="btn btn-primary">Add Your Note</button>
+    </div>
+</form>
+<br />
+
+<ul style="padding: 5px;" class="list-group list-group-flush" id="notes">
+    <div>
+        {% for note in current_user.notes_of_user %}
+        <li class="list-group-item">
+            <div>{% for note_title in current_user.note_title %}<h3>{{ note.note_title }}</h3>
+                 {% endfor %} 
+            </div>
+            <img style="padding: 5px;" src="{{ user.avatar(60) }}">   {{ note.note_data }}
+            <button type="button" class="close" onClick="deleteNote( {{ note.id }} )">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </li>
+        {% endfor %}
+    </div>
+</ul>
+
+
+{%  endblock %}
