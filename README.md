@@ -4,6 +4,4 @@
 This simple web app allows a user to create an account, login, create notes and titles, and logout. It utilizes Flask framework, Jinja templating engine, werkzeug Web Server Gateway Interface (WSGI) in its implementation.
 The application is still in development.
 
-![Alt text](https://github.com/Taiwopeter-babs/pter-flask-app/blob/master/test_images/CAPTURE1.PNG?raw=true "Page displayed for new user")
-
-
+![Capture1](https://user-images.githubusercontent.com/68950858/212570499-4fc71d45-433c-4e8a-be00-c174d90590e0.PNG)
