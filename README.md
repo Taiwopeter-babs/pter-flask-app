@@ -4,4 +4,4 @@
 This simple web app allows a user to create an account, login, create notes and titles, and logout. It utilizes Flask framework, Jinja templating engine, werkzeug Web Server Gateway Interface (WSGI) in its implementation.
 The application is still in development.
 
-![Alt text](/test_image/CAPTURE1.PNG "Page displayed for new user")
+![Alt text](/test_images/CAPTURE1.PNG "Page displayed for new user")
