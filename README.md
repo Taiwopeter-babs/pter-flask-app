@@ -5,3 +5,5 @@ This simple web app allows a user to create an account, login, create notes and 
 The application is still in development.
 
 ![Alt text](https://github.com/Taiwopeter-babs/pter-flask-app/blob/master/test_images/CAPTURE1.PNG?raw=true "Page displayed for new user")
+
+
