@@ -1,10 +1,7 @@
-This blog has been built with flask in it's entirety, save for the delete_note function
-in javascript. 
-# Caution
-1. Please contact me if you intend to fork this repo.
+##	A Minimal Web Application in Python
+![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white) ![Jinja](https://img.shields.io/badge/jinja-white.svg?style=for-the-badge&logo=jinja&logoColor=black) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
 
-2. Also, i intend to refactor about 90% of the fuctions in views.py and 
-   use the built_in flask-form modules.
-3. The reason for No. 2 above is due to difficulties i encountered while trying to
-   use my custom methods of returning error pages to the user.
+This simple web app allows a user to create an account, login, create notes and titles, and logout. It utilizes Flask framework, Jinja templating engine, werkzeug Web Server Gateway Interface (WSGI) in its implementation.
+The application is still in development.
 
+![Alt text](/test_image/CAPTURE1.PNG "Page displayed for new user")
