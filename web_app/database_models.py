@@ -48,11 +48,3 @@ class Note(db.Model, UserMixin):
     )
     note_title = db.Column(db.String(120))
     user_id = db.Column(db.Integer, db.ForeignKey(User.id))
-
-
-"""class UpdateProfile(db.Model, UserMixin):
-    __tablename__ = "UserProfile"
-    id = db.Column(db.Integer, primary_key=True)
-    updated_new_full_name = db.Column(db.String(120), index=True, unique=True)
-    updated_about_user = db.Column(db.String(150))
-    user_full_name = db.Column(db.Integer, db.ForeignKey(User.full_name))"""

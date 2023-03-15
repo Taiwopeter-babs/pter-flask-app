@@ -19,7 +19,7 @@ load_dotenv()
 
 # The database 'db' is initialized with sqlalchemy class
 db = SQLAlchemy()
-app = Flask(__name__)
+# app = Flask(__name__)
 
 # the 'migrate' object is initialized with the database migration class
 migrate = Migrate()
@@ -29,6 +29,7 @@ login_manager.login_view = "auth.login"
 #  create app Factory
 # creates the flask app by initializing the Flask class
 def create_app():
+    # db = SQLAlchemy()
     app = Flask(__name__)
 
     # Loads the KEY->VALUE pairs from .env in config.py through Config class
@@ -40,17 +41,14 @@ def create_app():
 
     # @dev imports blueprints from views.py and auth.py
     # and registers them with the app
-    from web_app.views import views
-    from web_app.auth import auth
+    from .views import views
+    from .auth import auth
 
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(auth, url_prefix="/")
 
     # models are imported
-    from web_app.database_models import User, Note
-
-    # @dev initializes the function that checks for database creation with the app created
-    """create_database(app)"""
+    from .database_models import User, Note
 
     # @dev uses the LoginManager class to manage the login so user is
     # directed to the login page
@@ -62,17 +60,17 @@ def create_app():
     # database: internal_error -> This is triggered when an error occurs in the database,
     # session rollback resets the session so the failed database session does not
     # interfere with any other database access
-    @app.errorhandler(404)
-    def not_found_error(error):
-        return render_template("404.html"), 404
+    # @app.errorhandler(404)
+    # def not_found_error(error):
+    #     return render_template("404.html"), 404
 
-    @app.errorhandler(500)
-    def internal_error(error):
-        db.session.rollback()
-        return render_template("500.html"), 500
+    # @app.errorhandler(500)
+    # def internal_error(error):
+    #     db.session.rollback()
+    #     return render_template("500.html"), 500
 
-    app.register_error_handler(Exception, not_found_error)
-    app.register_error_handler(Exception, internal_error)
+    # app.register_error_handler(Exception, not_found_error)
+    # app.register_error_handler(Exception, internal_error)
 
     # This flow control runs only in production mode.
     # the environment vars are loaded from the config class (ln 34)

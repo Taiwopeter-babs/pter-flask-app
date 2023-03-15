@@ -78,10 +78,11 @@ def profile(full_name):
 
 @views.route("/edit_profile/<int:id>", methods=["GET", "POST"])
 @login_required
-def edit_profile(id):
+def edit_profile(full_name):
     if current_user.is_authenticated:
-        user = User.query.filter_by(id=id).first()
-        full_name_to_update = User.query.get_or_404(id)
+        full_name = request.form.get("full_name")
+        user = User.query.filter_by(full_name=full_name).first()
+
         if user and request.method == "POST":
             # set the value in the database to the value entered in the form
             current_user.full_name = request.form.get("full_name")
@@ -97,17 +98,11 @@ def edit_profile(id):
                 flash("Error! Please try again", category="error")
                 render_template(
                     "edit_profile.html",
+                    id=current_user.id,
                     user=current_user,
-                    full_name_to_update=session.get("full_name_to_update"),
                 )
-
-        elif user and request.method == "GET":
-            full_name_to_update.full_name = current_user.full_name
-            full_name_to_update.about_user = current_user.about_user
-            flash("Your changes have been saved.", category="success")
-            render_template(
-                "edit_profile.html",
-                user=current_user,
-                full_name_to_update=full_name_to_update,
-            )
-        redirect(url_for("views.profile", user=current_user))
+        return render_template(
+            "edit_profile",
+            id=current_user.id,
+            user=current_user,
+        )

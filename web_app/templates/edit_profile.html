@@ -4,13 +4,13 @@
 
 
 <div class="container" style="border: 5px thin gray; padding: 5px; margin: auto; width: 400px;">
-    <form action="/edit_profile/{{full_name_to_update.id}}" method="POST">
+    <form action="/edit_profile/{{current_user.id}}" method="POST">
         <p>
             <h3 align="center">Edit Profile</h3>
         </p>
         <div class="form-group">
             <label for="full_name"><strong> Edit your name </strong><i><small>(or keep it)</small></i></label>
-            <input type="text" class="form-control" id="full_name" name="full_name" value="{{full_name_to_update.full_name}}"></input>
+            <input type="text" class="form-control" id="full_name" name="full_name" value="{{current_user.full_name}}"></input>
             <br>
             <label for="about_user">Edit your Bio</label>
             <textarea name="about_user" id="about_user" cols="20" rows="5" class="form-control" placeholder="Write something about yourself..." ></textarea>
